@@ -1,16 +1,25 @@
 #set("content") {
+<h1 id="themeButton">
+#if(isDarkTheme) {
+<a href="/light">Toggle: Dark</a>
+} else {
+<a href="/dark">Toggle: Light</a>
+}
+
+</h1>
+
 <b><h1>Profile</h1></b>
 	<div id="profile">
-		<h2>#(name)</h2>
-		<h3>#(bio)</h3>
-		<p>#(email)</p>
-		<p>#(phone)</p>
-		<p>#(location)</p>
+		<h2>#(profile.name)</h2>
+		<h3>#(profile.bio)</h3>
+		<p>#(profile.email)</p>
+		<p>#(profile.phone)</p>
+		<p>#(profile.location)</p>
 		</div>
 
 <b><h1>Social</h1></b>
 		<div id="social" class="section">
-#for(social in socialMedia) {
+#for(social in profile.socialMedia) {
 
 	<div id="socialLink" class="child">
 		<a href=#(social.url)>#(social.title)</a>
@@ -21,7 +30,7 @@
 
 <b><h1>Experiences</h1></b>
 <div id="experiences" class="section">
-#for(experience in experiences) {
+#for(experience in profile.experiences) {
 	<div id="experience" class="child">
 		<h4>#(experience.title)</h4>
 		<h5>#(experience.company)</h5>
@@ -33,7 +42,7 @@
 
 <b><h1>Skills</h1></b>
 <div id="skills" class="section">
-#for(skill in skills) {
+#for(skill in profile.skills) {
 	<div id="skill" class="child">
 		<p>#(skill.title)</p>
 		<p>#(skill.description)</p>
@@ -43,7 +52,7 @@
 
 <b><h1>Links</h1></b>
 <div id="links" class="section">
-#for(link in links) {
+#for(link in profile.links) {
 	<div id="link" class="child">
 		<a href=#(link.url)><h4>#(link.title)</h4></a>
 		<p>#(link.description)</p>
